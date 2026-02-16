@@ -1,0 +1,196 @@
+/* ================================
+   ROW CONTAINER
+================================ */
+.row {
+  position: relative;
+  margin-left: 20px;
+  margin-top: 30px;
+  color: #fff;
+}
+
+.row h2 {
+  margin-left: 10px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* ================================
+   POSTERS SCROLL CONTAINER
+================================ */
+.row__posters {
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  padding: 20px 0;
+  scroll-behavior: smooth;
+}
+
+.row__posters::-webkit-scrollbar {
+  display: none;
+}
+
+/* ================================
+   POSTER WRAPPER
+================================ */
+.row__posterWrapper {
+  position: relative;
+  margin-right: 12px;
+  transition: transform 0.35s ease, z-index 0.3s;
+}
+
+.row__posterWrapper:hover {
+  transform: scale(1.15) translateY(-10px);
+  z-index: 10;
+}
+
+.row__posterWrapperLarge:hover {
+  transform: scale(1.18) translateY(-12px);
+}
+
+/* ================================
+   POSTER IMAGE
+================================ */
+.row__poster {
+  width: 220px;
+  max-height: 125px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: filter 0.3s ease;
+}
+
+.row__posterLarge {
+  width: 240px;
+  max-height: 360px;
+}
+
+.row__posterWrapper:hover .row__poster {
+  filter: brightness(0.6);
+}
+
+/* ================================
+   OVERLAY EFFECT
+================================ */
+.posterOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85),
+    rgba(0, 0, 0, 0.2)
+  );
+  opacity: 0;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 12px;
+  transition: opacity 0.3s ease;
+}
+
+.row__posterWrapper:hover .posterOverlay {
+  opacity: 1;
+}
+
+/* ================================
+   OVERLAY ICONS
+================================ */
+.overlayIcons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.overlayIcons button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.25s ease;
+}
+
+.overlayIcons button:hover {
+  background: #e50914;
+  transform: scale(1.15);
+}
+
+/* ================================
+   MOVIE TITLE
+================================ */
+.posterTitle {
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ================================
+   SCROLL ARROWS
+================================ */
+.row__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  z-index: 20;
+  opacity: 0;
+  transition: opacity 0.3s ease, background 0.3s ease;
+}
+
+.row:hover .row__arrow {
+  opacity: 1;
+}
+
+.row__arrow:hover {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.row__arrow.left {
+  left: 0;
+}
+
+.row__arrow.right {
+  right: 0;
+}
+
+/* ================================
+   YOUTUBE PLAYER
+================================ */
+.row iframe {
+  margin-top: 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .row__poster {
+    width: 160px;
+  }
+
+  .row__posterLarge {
+    width: 180px;
+  }
+
+  .row__arrow {
+    display: none;
+  }
+}
